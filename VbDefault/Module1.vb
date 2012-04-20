@@ -17,6 +17,8 @@ Module Module1
 
     Public Class TestClass
     End Class
+    Public Structure TestStruct
+    End Structure
     Public Enum TestEnum
         RequiredValue
     End Enum
@@ -30,6 +32,11 @@ Module Module1
         Debug.Assert(GetDefaultNothingDirect(Of Integer)() = DefaultWrapper.GetDefault(Of Integer)())
         Debug.Assert(GetDefaultNothingCtype(Of Integer)() = DefaultWrapper.GetDefault(Of Integer)())
         Debug.Assert(GetDefaultNothingDirectCast(Of Integer)() = DefaultWrapper.GetDefault(Of Integer)())
+
+        Debug.Assert(GetDefaultDeclaration(Of TestStruct)().Equals(DefaultWrapper.GetDefault(Of TestStruct)()))
+        Debug.Assert(GetDefaultNothingDirect(Of TestStruct)().Equals(DefaultWrapper.GetDefault(Of TestStruct)()))
+        Debug.Assert(GetDefaultNothingCtype(Of TestStruct)().Equals(DefaultWrapper.GetDefault(Of TestStruct)()))
+        Debug.Assert(GetDefaultNothingDirectCast(Of TestStruct)().Equals(DefaultWrapper.GetDefault(Of TestStruct)()))
 
         Debug.Assert(GetDefaultDeclaration(Of TestClass)() Is Nothing)
         Debug.Assert(GetDefaultNothingDirect(Of TestClass)() Is Nothing)
