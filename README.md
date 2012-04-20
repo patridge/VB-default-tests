@@ -18,3 +18,7 @@ Methods tested [using simple Debug.Assert on a command line app]:
     Public Function GetDefaultNothingDirectCast(Of T)() As T
         Return DirectCast(Nothing, T)
     End Function
+    
+Method not tested:
+
+    Return New T() ' Not equivalent to default(T) at all and only works for reference types.
